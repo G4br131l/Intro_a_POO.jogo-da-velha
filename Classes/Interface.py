@@ -4,7 +4,7 @@ class Interface:
     def __init__(self, tabuleiro: Tabuleiro) -> None:
         self.tabuleiro = tabuleiro
 
-    def exibir_jogo(self):
+    def exibir_jogo(self) -> None:
         tabuleiro = self.tabuleiro.get_tab()
 
         print('|'.join(tabuleiro[0]))
@@ -13,13 +13,14 @@ class Interface:
         print('-' * 5)
         print('|'.join(tabuleiro[2]))
 
-    def jogar(self, local: list):
-        if not self.__jogada_valida(local):
+    def jogar(self, linha:int, coluna:int, jogador) -> bool:
+        if not self.jogada_valida(linha, coluna):
             return False
+        self.tabuleiro.jogar_em(linha, coluna, jogador)
         return True
 
-    def jogada_valida(self, local):
-        if self.tabuleiro.get_tab()[local[0]][local[1]] == ' ':
+    def jogada_valida(self, linha:int, coluna:int):
+        if self.tabuleiro.get_tab()[linha][coluna] == ' ':
             return True
         return False
         

@@ -8,10 +8,10 @@ class Tabuleiro:
             [" ", " ", " "]
         ]
     
-    def jogar_em(self, lin, col, jogador: Jogador):
+    def jogar_em(self, lin, col, jogador: Jogador) -> None:
         self.tabuleiro[lin][col] = jogador.get_jogador()
         
-    def get_tab(self):
+    def get_tab(self) -> list[list[str]]:
         return self.tabuleiro
     
 

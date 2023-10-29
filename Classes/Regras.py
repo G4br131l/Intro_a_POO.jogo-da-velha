@@ -28,7 +28,7 @@ class Regras(Interface):
         return False
     
     @staticmethod   
-    def linha_e_diagonal(jogadores: list[str], tabuleiro: list[list[str]]):
+    def linha_e_diagonal(jogadores: list[str], tabuleiro: list[list[str]]) -> bool:
         for jogador in jogadores:
             if [jogador] * 3 in tabuleiro:
                 return jogador

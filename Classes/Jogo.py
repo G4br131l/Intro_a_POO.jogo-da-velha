@@ -16,14 +16,14 @@ class Jogo(RegrasDeTabuleiro):
         
         return False
 
-    def quem_joga(self):
+    def quem_joga(self) -> Jogador:
         if self.numero_de_jogadas % 2 == 0:
             return self.jogador1
         return self.jogador2
     
-    def jogar(self, lin, col, jogador: Jogador):
-        if not self.jogada_valida([lin, col]):
-            return self.jogada_valida([lin, col])
+    def jogar(self, lin: int, col: int, jogador: Jogador) -> bool:
+        if not self.jogada_valida(lin, col):
+            return False
         
         self.tabuleiro.jogar_em(lin, col, jogador)
         
